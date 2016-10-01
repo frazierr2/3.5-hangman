@@ -1,0 +1,17 @@
+*{
+  box-sizing: border-box;
+}
+
+body{
+  background-color: orange;
+  text-align: center;
+}
+h1{
+  font-size: 70px;
+}
+#text{
+  font-size: 30px;
+}
+#guess, #restart{
+  font-size: 30px;
+}
