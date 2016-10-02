@@ -8,6 +8,7 @@
   var inputBox;
   var playerGuess;
   var letter;
+  var yourWord;
 
 remaingGuesses = 5;
 
@@ -40,11 +41,15 @@ function playerInput(){
 
 //Is the letter correct?
 letter = 0;
-
+ yourWord = document.querySelector(".your-word");
 function isLetterCorrect(playerGuess) {
   for (var i = 0; i < word.length; i++) {
     if(word[i] == playerGuess){
-
+      yourWord.textContent = playerGuess;
+      letter += 1;
+    }
+    if(letter == word.length){
+      banner.textContent = "WINNER WINNER CHICKEN DINNER";
     }
   }
 }
