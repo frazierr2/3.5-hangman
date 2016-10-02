@@ -15,3 +15,11 @@ h1{
 #guess, #restart{
   font-size: 30px;
 }
+.word-space{
+  font-size: 30px;
+  margin: 0 auto;
+  padding-right: 340px;
+}
+.your-word{
+
+}

@@ -7,7 +7,7 @@
   var playerGuessButton;
   var inputBox;
   var playerGuess;
-
+  var letter;
 
 remaingGuesses = 5;
 
@@ -27,18 +27,27 @@ word = wordGenerator();
 
 
 //Below is where we will set up when the player guesses and what to do.
-playerGuessButton = document.getElementById('button');
-button.addEventListener('click', playerInput);
+playerGuessButton = document.getElementById("button");
+playerGuessButton.addEventListener("click", playerInput);
 
 function playerInput(){
-  inputBox = document.getElementById('guess');
+  inputBox = document.getElementById("guess");
   playerGuess = inputBox.value;
   inputBox.value = "";
   isLetterCorrect(playerGuess);
   subtractLives();
 }
 
+//Is the letter correct?
+letter = 0;
 
+function isLetterCorrect(playerGuess) {
+  for (var i = 0; i < word.length; i++) {
+    if(word[i] == playerGuess){
+
+    }
+  }
+}
 
 
 
