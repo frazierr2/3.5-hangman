@@ -17,9 +17,16 @@ h1{
 }
 .word-space{
   font-size: 30px;
-  margin: 0 auto;
+  /*margin: 0 auto;*/
   padding-right: 340px;
 }
 .your-word{
 
+}
+
+.guesses{
+  font-size: 30px;
+}
+.number-of-guesses{
+  font-size: 30px;
 }
