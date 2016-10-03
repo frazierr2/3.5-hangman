@@ -1,18 +1,30 @@
 (function(){
   'use strict';
+
   var wordsGreaterThanThree;
   var generatedWord;
   var word;
   var remaingGuesses;
+  var messages;
   var wordSlots;
   var characters;
   var playerGuessButton;
   var inputBox;
   var playerGuess;
   var letter;
-  var yourWord;
+  var title;
+  var lives;
+  // var yourWord;
 
-remaingGuesses = 5;
+
+          remaingGuesses = 5;
+          messages = {
+              win: 'WINNER WINNER CHICKEN DINNER',
+              lose: 'SO SORRY, YOU ARE A LOSER!',
+              guessed: ' already guessed, please try again...',
+              validLetter: 'Please enter a letter from A-Z'
+          };
+
 
 //Returning words that are more than 2 letters.
   wordsGreaterThanThree = commonWords.filter(function(words){
@@ -25,6 +37,7 @@ function wordGenerator(){
   generatedWord = Math.floor(Math.random() * wordsGreaterThanThree.length);
   return wordsGreaterThanThree[generatedWord];
   }
+
 word = wordGenerator();
 console.log(word); //Logs the random word with each refresh of the screen.
 
@@ -47,21 +60,31 @@ function playerInput(){
   isLetterCorrect(playerGuess);
   subtractLives();
 }
-//
-// //Is the letter correct?
-// letter = 0;
-//  yourWord = document.querySelector(".your-word");
-// function isLetterCorrect(playerGuess) {
-//   for (var i = 0; i < word.length; i++) {
-//     if(word[i] == playerGuess){
-//       yourWord.textContent = playerGuess;
-//       letter += 1;
-//     }
-//     if(letter == word.length){
-//       banner.textContent = "WINNER WINNER CHICKEN DINNER";
-//     }
-//   }
-// }
+
+
+// //Is the letter correct if so progress if not decrease guessRemaining.?
+letter = 0;
+title = document.querySelector("h1");
+function isLetterCorrect(playerGuess) {
+  for (var i = 0; i < word.length; i++) {
+    if(word[i] == playerGuess){
+      wordSlots.textContent = playerGuess;
+      letter += 1;
+    }
+    if(letter == word.length){
+      title.textContent = messages.win;
+    }
+  }
+}
+
+function subtractLives(){
+  remaingGuesses -= 1;
+  lives = document.getElementById("number-of-guesses");
+  lives.textContent = remaingGuesses;
+  if (remaingGuesses == 0) {
+    title.textContent = messages.lose;
+  }
+}
 
 
 
