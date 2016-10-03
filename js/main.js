@@ -25,7 +25,6 @@
               validLetter: 'Please enter a letter from A-Z'
           };
 
-
 //Returning words that are more than 2 letters.
   wordsGreaterThanThree = commonWords.filter(function(words){
   return words.length > 2 && words.length < 10;
@@ -84,6 +83,13 @@ function subtractLives(){
   if (remaingGuesses == 0) {
     title.textContent = messages.lose;
   }
+}
+
+var reset = document.getElementById("restart");
+reset.addEventListener("click", resetGame);
+
+function resetGame() {
+  window.location.reload()
 }
 
 
