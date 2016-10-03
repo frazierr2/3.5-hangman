@@ -67,7 +67,7 @@ title = document.querySelector("h1");
 function isLetterCorrect(playerGuess) {
   for (var i = 0; i < word.length; i++) {
     if(word[i] == playerGuess){
-      wordSlots.textContent = playerGuess;
+      wordSlots.children[i].textContent = playerGuess;
       letter += 1;
     }
     if(letter == word.length){
@@ -77,14 +77,19 @@ function isLetterCorrect(playerGuess) {
 }
 
 function subtractLives(){
-  remaingGuesses -= 1;
+  // remaingGuesses -= 1;
   lives = document.getElementById("number-of-guesses");
   lives.textContent = remaingGuesses;
   if (remaingGuesses == 0) {
     title.textContent = messages.lose;
   }
+  if(word[i] != playerGuess){
+    remaingGuesses -= 1;
+  }
 }
 
+
+//RESTART BUTTON
 var reset = document.getElementById("restart");
 reset.addEventListener("click", resetGame);
 
