@@ -57,7 +57,7 @@ function playerInput(){
   playerGuess = inputBox.value;
   inputBox.value = "";
   isLetterCorrect(playerGuess);
-  subtractLives();
+  // subtractLives();
 }
 
 
@@ -70,22 +70,27 @@ function isLetterCorrect(playerGuess) {
       wordSlots.children[i].textContent = playerGuess;
       letter += 1;
     }
-    if(letter == word.length){
-      title.textContent = messages.win;
-    }
   }
+
+  if(letter == word.length){
+    title.textContent = messages.win;
+  }
+  if(word.indexOf(playerGuess) == -1){
+    subtractLives();
 }
 
 function subtractLives(){
-  // remaingGuesses -= 1;
+  remaingGuesses -= 1;
   lives = document.getElementById("number-of-guesses");
   lives.textContent = remaingGuesses;
   if (remaingGuesses == 0) {
     title.textContent = messages.lose;
   }
-  if(word[i] != playerGuess){
-    remaingGuesses -= 1;
+
   }
+  // if(word[i] != playerGuess){
+  //   remaingGuesses -= 1;
+  // }
 }
 
 
